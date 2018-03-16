@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE mycat:schema SYSTEM "schema.dtd">
+<mycat:schema xmlns:mycat="http://io.mycat/">
+
+    <schema name="UserDB" checkSQLschema="false" sqlMaxLimit="100">
+        <table name="travelrecord" dataNode="dn1" />
+    </schema>
+
+    <dataNode name="dn1" dataHost="localhost1" database="db1" />
+
+    <dataHost name="localhost1" maxCon="1000" minCon="10" balance="0"
+              writeType="0" dbType="mysql" dbDriver="native" switchType="1" slaveThreshold="100">
+        <heartbeat>select user()</heartbeat>
+        <writeHost host="hostM1" url="localhost:3306" user="root" password="root">
+            <readHost host="hostS2" url="192.168.1.200:3306" user="root" password="root" />
+        </writeHost>
+    </dataHost>
+
+</mycat:schema>
