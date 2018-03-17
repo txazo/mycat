@@ -13,7 +13,12 @@
 
     <properties>
         <app.encoding>UTF-8</app.encoding>
-        <conf.dir>master-slave</conf.dir>
+        <!-- 读写分离 -->
+        <!--<conf.dir>master-slave</conf.dir>-->
+        <!-- 垂直切分 -->
+        <!--<conf.dir>vertical-partition</conf.dir>-->
+        <!-- 水平切分 -->
+        <conf.dir>horizontal-partition</conf.dir>
     </properties>
 
     <dependencies>
@@ -252,6 +257,10 @@
                             <resources>
                                 <resource>
                                     <directory>src/test/resources/${conf.dir}</directory>
+                                    <includes>
+                                        <include>*.xml</include>
+                                    </includes>
+                                    <filtering>true</filtering>
                                 </resource>
                             </resources>
                         </configuration>

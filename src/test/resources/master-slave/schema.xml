@@ -4,9 +4,9 @@
 
     <schema name="UserDB" checkSQLschema="false" sqlMaxLimit="100" dataNode="dn1" />
 
-    <dataNode name="dn1" dataHost="localhost1" database="db1" />
+    <dataNode name="dn1" dataHost="dh1" database="user" />
 
-    <dataHost name="localhost1" maxCon="1000" minCon="10" balance="0"
+    <dataHost name="dh1" maxCon="1000" minCon="10" balance="0"
               writeType="0" dbType="mysql" dbDriver="native" switchType="1" slaveThreshold="100">
         <heartbeat>select user()</heartbeat>
         <writeHost host="hostMaster" url="192.168.1.100:3306" user="root" password="root">

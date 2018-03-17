@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE mycat:schema SYSTEM "schema.dtd">
+<mycat:schema xmlns:mycat="http://io.mycat/">
+
+    <schema name="OrderDB" checkSQLschema="false" sqlMaxLimit="100">
+        <table name="orders" primaryKey="id" rule="mod-long" dataNode="dn1,dn2,dn3,dn4" />
+    </schema>
+
+    <dataNode name="dn1" dataHost="dh1" database="orderdb1" />
+    <dataNode name="dn2" dataHost="dh2" database="orderdb2" />
+    <dataNode name="dn3" dataHost="dh3" database="orderdb3" />
+    <dataNode name="dn4" dataHost="dh4" database="orderdb4" />
+
+    <dataHost name="dh1" maxCon="1000" minCon="10" balance="0"
+              writeType="0" dbType="mysql" dbDriver="native" switchType="1" slaveThreshold="100">
+        <heartbeat>select user()</heartbeat>
+        <writeHost host="hostMaster" url="127.0.0.1:3306" user="root" password="root" />
+    </dataHost>
+    <dataHost name="dh2" maxCon="1000" minCon="10" balance="0"
+              writeType="0" dbType="mysql" dbDriver="native" switchType="1" slaveThreshold="100">
+        <heartbeat>select user()</heartbeat>
+        <writeHost host="hostMaster" url="127.0.0.1:3306" user="root" password="root" />
+    </dataHost>
+    <dataHost name="dh3" maxCon="1000" minCon="10" balance="0"
+              writeType="0" dbType="mysql" dbDriver="native" switchType="1" slaveThreshold="100">
+        <heartbeat>select user()</heartbeat>
+        <writeHost host="hostMaster" url="127.0.0.1:3306" user="root" password="root" />
+    </dataHost>
+    <dataHost name="dh4" maxCon="1000" minCon="10" balance="0"
+              writeType="0" dbType="mysql" dbDriver="native" switchType="1" slaveThreshold="100">
+        <heartbeat>select user()</heartbeat>
+        <writeHost host="hostMaster" url="127.0.0.1:3306" user="root" password="root" />
+    </dataHost>
+
+</mycat:schema>

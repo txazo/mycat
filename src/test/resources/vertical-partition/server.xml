@@ -20,7 +20,7 @@
 
     <user name="root" defaultAccount="true">
         <property name="password">root</property>
-        <property name="schemas">UserDB</property>
+        <property name="schemas">UserDB,OrderDB</property>
     </user>
 
 </mycat:server>
